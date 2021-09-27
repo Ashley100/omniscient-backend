@@ -1,0 +1,20 @@
+export const SYMBOLS = {
+  BTC: 'BTC',
+  USDT: 'USDT',
+  EHT: 'EHT',
+};
+
+export const PAIRS = {
+  [SYMBOLS.BTC]: {
+    [SYMBOLS.USDT]: `${SYMBOLS.BTC}${SYMBOLS.USDT}`,
+    [SYMBOLS.EHT]: `${SYMBOLS.BTC}${SYMBOLS.EHT}`,
+  },
+  [SYMBOLS.USDT]: {
+    [SYMBOLS.BTC]: `${SYMBOLS.USDT}${SYMBOLS.BTC}`,
+    [SYMBOLS.EHT]: `${SYMBOLS.USDT}${SYMBOLS.EHT}`,
+  },
+  [SYMBOLS.EHT]: {
+    [SYMBOLS.BTC]: `${SYMBOLS.EHT}${SYMBOLS.BTC}`,
+    [SYMBOLS.USDT]: `${SYMBOLS.EHT}${SYMBOLS.USDT}`,
+  },
+};
