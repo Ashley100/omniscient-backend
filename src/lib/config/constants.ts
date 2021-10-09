@@ -1,20 +1,86 @@
-export const SYMBOLS = {
+export type SymbolsInterface = {
+  readonly BTC: string,
+  readonly USDT: string,
+  readonly ETH: string,
+  readonly UNI: string,
+  readonly XRP: string,
+}
+export const SYMBOLS: SymbolsInterface = {
   BTC: 'BTC',
   USDT: 'USDT',
-  EHT: 'EHT',
+  ETH: 'ETH',
+  UNI: 'UNI',
+  XRP: 'XRP',
 };
 
-export const PAIRS = {
-  [SYMBOLS.BTC]: {
-    [SYMBOLS.USDT]: `${SYMBOLS.BTC}${SYMBOLS.USDT}`,
-    [SYMBOLS.EHT]: `${SYMBOLS.BTC}${SYMBOLS.EHT}`,
+export const SYMBOLS_NAME = {
+  [SYMBOLS.BTC]: 'Bitcoin',
+  [SYMBOLS.USDT]: 'TetherUS',
+  [SYMBOLS.ETH]: 'Ethereum',
+  [SYMBOLS.UNI]: 'Uniswap',
+  [SYMBOLS.XRP]: 'Ripple',
+};
+
+export type GeneralPairsInterface = {
+  readonly BTCUSDT: string,
+  readonly BTCETH: string,
+
+  readonly ETHBTC: string,
+  readonly ETHUSDT: string,
+
+  readonly USDTBTC: string,
+  readonly USDTETH: string,
+
+  readonly UNIBTC: string,
+  readonly UNIUSDT: string,
+
+  readonly XRPBTC: string,
+  readonly XRPUSDT: string,
+}
+export const GENERAL_PAIRS: GeneralPairsInterface = {
+  // BTC
+  BTCUSDT: `${SYMBOLS.BTC}${SYMBOLS.USDT}`,
+  BTCETH: `${SYMBOLS.BTC}${SYMBOLS.ETH}`,
+  // ETH
+  ETHBTC: `${SYMBOLS.ETH}${SYMBOLS.BTC}`,
+  ETHUSDT: `${SYMBOLS.ETH}${SYMBOLS.USDT}`,
+  // USDT
+  USDTBTC: `${SYMBOLS.USDT}${SYMBOLS.BTC}`,
+  USDTETH: `${SYMBOLS.USDT}${SYMBOLS.ETH}`,
+  // UNI
+  UNIBTC: `${SYMBOLS.UNI}${SYMBOLS.BTC}`,
+  UNIUSDT: `${SYMBOLS.UNI}${SYMBOLS.USDT}`,
+  // XRP
+  XRPBTC: `${SYMBOLS.XRP}${SYMBOLS.BTC}`,
+  XRPUSDT: `${SYMBOLS.XRP}${SYMBOLS.USDT}`,
+};
+
+export type PlatformsInterface = {
+  readonly binance: string,
+  readonly bybit: string,
+  readonly kucoin: string,
+}
+export const PLATFORMS: PlatformsInterface = {
+  binance: 'binance',
+  bybit: 'bybit',
+  kucoin: 'kucoin',
+}
+
+export const USER = {
+  budget: 100,
+  budgetToTrade: 100,
+  orderLimits: {
+    buy: 100,
+    sell: 100
   },
-  [SYMBOLS.USDT]: {
-    [SYMBOLS.BTC]: `${SYMBOLS.USDT}${SYMBOLS.BTC}`,
-    [SYMBOLS.EHT]: `${SYMBOLS.USDT}${SYMBOLS.EHT}`,
-  },
-  [SYMBOLS.EHT]: {
-    [SYMBOLS.BTC]: `${SYMBOLS.EHT}${SYMBOLS.BTC}`,
-    [SYMBOLS.USDT]: `${SYMBOLS.EHT}${SYMBOLS.USDT}`,
-  },
+  pairs: [
+    GENERAL_PAIRS.BTCUSDT,
+    GENERAL_PAIRS.UNIUSDT,
+    GENERAL_PAIRS.ETHUSDT
+  ],
+  platforms: [
+    PLATFORMS.binance,
+    PLATFORMS.kucoin,
+    PLATFORMS.bybit
+  ]
 };

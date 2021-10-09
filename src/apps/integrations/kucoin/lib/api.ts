@@ -6,13 +6,13 @@ import { HttpStatus } from '@nestjs/common';
 import { ERRORS } from '../../../../lib/config/errors';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://api.binance.com/api/v3/'
+  baseURL: 'https://api.kucoin.com/api/v1/'
 });
 
-export const binanceApi = {
+export const kucoinApi = {
 
-  async getOrderBook(pair = 'BTCUSDT', limit) {
-    const response = await axiosInstance.get(`depth?symbol=${pair}&limit=${limit}`);
+  async getOrderBook(pair = 'BTC-USDT', limit) {
+    const response = await axiosInstance.get(`market/orderbook/level2_20?symbol=${pair}`);
 
     if (response.status !== HttpStatus.OK) {
       throw new Error(ERRORS.API_CALL_FAILED);

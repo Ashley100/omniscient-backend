@@ -25,7 +25,11 @@
     "@nestjs/core": "^7.6.15",
     "@nestjs/platform-express": "^7.6.15",
     "@types/axios": "^0.14.0",
+    "@types/date-fns": "^2.6.0",
+    "@types/lodash": "^4.14.175",
     "axios": "^0.21.4",
+    "date-fns": "^2.24.0",
+    "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6"

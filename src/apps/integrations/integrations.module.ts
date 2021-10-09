@@ -1,29 +1,39 @@
 // Package modules
 import { Module } from '@nestjs/common';
 
-// Local modules
+// Controllers
 import { BinanceController } from './binance/binance.controller';
-import { BinanceService } from './binance/binance.service';
-
 import { BybitController } from './bybit/bybit.controller';
-import { ByBitService } from './bybit/bybit.service';
+import { KucoinController } from './kucoin/kucoin.controller';
+import { IntegrationsController } from './integrations.controller';
 
+// Services
 import { IntegrationsService } from './integrations.service';
+import { IntegrationService } from './integration.service';
+import { BinanceService } from './binance/binance.service';
+import { ByBitService } from './bybit/bybit.service';
+import { KucoinService } from './kucoin/kucoin.service';
 
 @Module({
   controllers: [
+    IntegrationsController,
     BinanceController,
-    BybitController
+    BybitController,
+    KucoinController
   ],
   providers: [
     IntegrationsService,
+    IntegrationService,
     BinanceService,
-    ByBitService
+    ByBitService,
+    KucoinService
   ],
   exports: [
     IntegrationsService,
+    IntegrationService,
     BinanceService,
-    ByBitService
+    ByBitService,
+    KucoinService
   ]
 })
 export class IntegrationsModule {

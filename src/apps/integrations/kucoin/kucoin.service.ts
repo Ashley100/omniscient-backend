@@ -5,7 +5,7 @@ import { Injectable } from '@nestjs/common';
 import { IntegrationService } from '../integration.service';
 
 // Local modules
-import { binanceApi } from './lib/api';
+import { kucoinApi } from './lib/api';
 import { PAIRS } from './lib/constants';
 import { PLATFORMS } from '../../../lib/config/constants';
 
@@ -15,34 +15,31 @@ import {
   PlatformServiceInterface
 } from '../lib/interfaces';
 
-
 @Injectable()
-export class BinanceService extends IntegrationService implements PlatformServiceInterface {
+export class KucoinService extends IntegrationService implements PlatformServiceInterface {
   readonly platform: string;
   readonly orderBookLimit: number;
 
   constructor() {
     super();
 
-    this.platform = PLATFORMS.binance;
+    this.platform = PLATFORMS.kucoin;
     this.orderBookLimit = 5;
   }
 
-
   async getOrderBook(pair:string, limit:number): Promise<OrderBookInterface> {
 
-    const orderBook = await binanceApi.getOrderBook(PAIRS[pair], limit);
+    const orderBook = await kucoinApi.getOrderBook(PAIRS[pair], limit);
 
     const formattedOrderBook = this.formatToGeneralOrderBook(orderBook);
 
     return formattedOrderBook;
   }
 
-
   formatToGeneralOrderBook(orderBook) {
     let orders: OrderBookInterface = {
-      bids: [...orderBook.data.bids.map(symbol => ({ price: symbol[0], size: symbol[1] }))],
-      asks: [...orderBook.data.asks.map(symbol => ({ price: symbol[0], size: symbol[1] }))],
+      bids: [...orderBook.data.data.bids.map(symbol => ({ price: symbol[0], size: symbol[1] }))],
+      asks: [...orderBook.data.data.asks.map(symbol => ({ price: symbol[0], size: symbol[1] }))],
     };
 
     return orders;
