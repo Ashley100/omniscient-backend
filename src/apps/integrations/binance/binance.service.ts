@@ -1,9 +1,6 @@
 // Package modules
 import { Injectable } from '@nestjs/common';
 
-// Services
-import { IntegrationService } from '../integration.service';
-
 // Local modules
 import { binanceApi } from './lib/api';
 import { PAIRS } from './lib/constants';
@@ -17,13 +14,11 @@ import {
 
 
 @Injectable()
-export class BinanceService extends IntegrationService implements PlatformServiceInterface {
+export class BinanceService implements PlatformServiceInterface {
   readonly platform: string;
   readonly orderBookLimit: number;
 
   constructor() {
-    super();
-
     this.platform = PLATFORMS.binance;
     this.orderBookLimit = 5;
   }

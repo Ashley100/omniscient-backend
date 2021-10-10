@@ -1,9 +1,6 @@
 // Package modules
 import { Injectable } from '@nestjs/common';
 
-// Services
-import { IntegrationService } from '../integration.service';
-
 // Local modules
 import { bybitApi } from './lib/api';
 import { PAIRS } from './lib/constants';
@@ -16,13 +13,11 @@ import {
 } from '../lib/interfaces';
 
 @Injectable()
-export class ByBitService extends IntegrationService implements PlatformServiceInterface {
+export class ByBitService implements PlatformServiceInterface {
   readonly platform: string;
   readonly orderBookLimit: number;
 
   constructor() {
-    super();
-
     this.platform = PLATFORMS.bybit;
     this.orderBookLimit = 5;
   }

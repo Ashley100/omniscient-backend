@@ -1,9 +1,6 @@
 // Package modules
 import { Injectable } from '@nestjs/common';
 
-// Services
-import { IntegrationService } from '../integration.service';
-
 // Local modules
 import { kucoinApi } from './lib/api';
 import { PAIRS } from './lib/constants';
@@ -16,13 +13,11 @@ import {
 } from '../lib/interfaces';
 
 @Injectable()
-export class KucoinService extends IntegrationService implements PlatformServiceInterface {
+export class KucoinService implements PlatformServiceInterface {
   readonly platform: string;
   readonly orderBookLimit: number;
 
   constructor() {
-    super();
-
     this.platform = PLATFORMS.kucoin;
     this.orderBookLimit = 5;
   }
