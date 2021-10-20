@@ -4,13 +4,13 @@ import { Injectable } from '@nestjs/common';
 // Local modules
 import { kucoinApi } from './lib/api';
 import { PAIRS } from './lib/constants';
-import { PLATFORMS } from '../../../lib/config/constants';
+import { PLATFORMS } from '../../../../lib/config/constants';
 
 // Interfaces
 import {
   OrderBookInterface,
   PlatformServiceInterface
-} from '../lib/interfaces';
+} from '../../lib/interfaces';
 
 @Injectable()
 export class KucoinService implements PlatformServiceInterface {

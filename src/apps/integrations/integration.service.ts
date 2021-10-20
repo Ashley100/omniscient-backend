@@ -4,9 +4,9 @@ import { formatISO } from "date-fns";
 import { map, set } from 'lodash';
 
 // Services
-import { BinanceService } from './binance/binance.service';
-import { ByBitService } from './bybit/bybit.service';
-import { KucoinService } from './kucoin/kucoin.service';
+import { BinanceService } from './platforms/binance/binance.service';
+import { ByBitService } from './platforms/bybit/bybit.service';
+import { KucoinService } from './platforms/kucoin/kucoin.service';
 
 // Interfaces
 import {

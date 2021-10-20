@@ -2,7 +2,7 @@ import {
   GENERAL_PAIRS as generalPairs,
   SYMBOLS,
   GeneralPairsInterface,
-} from '../../../../lib/config/constants';
+} from '../../../../../lib/config/constants';
 
 export const PAIRS: GeneralPairsInterface = {
   ...generalPairs,

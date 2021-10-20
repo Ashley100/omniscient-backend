@@ -3,7 +3,7 @@ import axios from 'axios';
 import { HttpStatus } from '@nestjs/common';
 
 // Local modules
-import { ERRORS } from '../../../../lib/config/errors';
+import { ERRORS } from '../../../../../lib/config/errors';
 
 const axiosInstance = axios.create({
   baseURL: 'https://api.kucoin.com/api/v1/'
